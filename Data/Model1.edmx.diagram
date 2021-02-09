@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a51e812793a844de9946e6d2744d0728" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="DataModel.Class" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DetailClass" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DetailSchedule" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DetailScore" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Expertise" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.HeaderSchedule" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Shift" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Student" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Subject" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Teacher" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="DataModel.FK_DetailClass_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_HeaderSchedule_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailClass_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailSchedule_HeaderSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailSchedule_Shift" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailSchedule_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailScore_DetailSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DetailScore_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Expertise_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Expertise_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_User_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_User_Teacher" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DataModel.ClassStudent" Width="1.5" PointX="8.375" PointY="9.75" />
+        <EntityTypeShape EntityType="DataModel.StudentScore" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Schedule" Width="1.5" PointX="8.625" PointY="3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
