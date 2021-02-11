@@ -89,6 +89,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(776, 364);
             this.dataGridView1.TabIndex = 54;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // subjectIdDataGridViewTextBoxColumn
             // 
@@ -167,6 +169,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormViewScore";
             this.Text = "FormViewScore";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewScore_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentScoreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();

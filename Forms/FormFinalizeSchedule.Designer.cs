@@ -66,6 +66,7 @@
             this.ClassBox.Name = "ClassBox";
             this.ClassBox.Size = new System.Drawing.Size(121, 24);
             this.ClassBox.TabIndex = 49;
+            this.ClassBox.SelectedIndexChanged += new System.EventHandler(this.ClassBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -84,6 +85,7 @@
             this.FinalizeButton.TabIndex = 54;
             this.FinalizeButton.Text = "Finalize";
             this.FinalizeButton.UseVisualStyleBackColor = true;
+            this.FinalizeButton.Click += new System.EventHandler(this.FinalizeButton_Click);
             // 
             // dataGridView1
             // 
@@ -187,6 +189,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormFinalizeSchedule";
             this.Text = "FormFinalizeSchedule";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormFinalizeSchedule_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();

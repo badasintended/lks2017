@@ -10,16 +10,32 @@ using System.Windows.Forms;
 
 namespace Nusantara.Forms
 {
-    public partial class FormViewScheduleStudent : Form, IForm
+    public partial class FormViewScheduleStudent : Form
     {
         public FormViewScheduleStudent()
         {
             InitializeComponent();
+
+            DayBox.DataSource = Enum.GetValues(typeof(DayOfWeek));
+            DayBox.SelectedItem = DayOfWeek.Monday;
         }
 
-        public void Clear()
+        private void DayBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var day = Enum.GetName(typeof(DayOfWeek), (DayOfWeek)DayBox.SelectedItem);
+            var clazz = Program.User.Student.DetailClasses
+                .FirstOrDefault();
+
+            if (clazz == null) return;
+
+            dataGridView1.DataSource = Program.Entities.Schedules
+                .Where(s => s.Day == day && s.ClassName == clazz.ClassName)
+                .ToList();
+        }
+
+        private void FormViewScheduleStudent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NavStudent.GetInstance().Show();
         }
     }
 }

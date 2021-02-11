@@ -146,6 +146,7 @@
             this.DayBox.Name = "DayBox";
             this.DayBox.Size = new System.Drawing.Size(121, 24);
             this.DayBox.TabIndex = 51;
+            this.DayBox.SelectedIndexChanged += new System.EventHandler(this.DayBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -177,6 +178,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormViewScheduleStudent";
             this.Text = "FormViewScheduleStudent";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewScheduleStudent_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();

@@ -10,16 +10,40 @@ using System.Windows.Forms;
 
 namespace Nusantara.Forms
 {
-    public partial class FormFinalizeSchedule : Form, IForm
+    public partial class FormFinalizeSchedule : Form
     {
         public FormFinalizeSchedule()
         {
             InitializeComponent();
+
+            ClassBox.DataSource = Program.Entities.Classes.ToList();
+            ClassBox.DisplayMember = "ClassName";
         }
 
-        public void Clear()
+        private void FinalizeButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var clazz = ((Data.Class)ClassBox.SelectedItem).ClassName;
+
+            Program.Entities.HeaderSchedules
+                .Where(s => s.ClassName == clazz)
+                .FirstOrDefault()
+                .Finalize = 1;
+
+            Program.Entities.SaveChanges();
+        }
+
+        private void ClassBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var clazz = ((Data.Class)ClassBox.SelectedItem).ClassName;
+
+            dataGridView1.DataSource = Program.Entities.Schedules
+                .Where(s => s.ClassName == clazz)
+                .ToList();
+        }
+
+        private void FormFinalizeSchedule_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NavAdmin.INSTANCE.Show();
         }
     }
 }

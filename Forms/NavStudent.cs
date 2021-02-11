@@ -34,5 +34,22 @@ namespace Nusantara.Forms
             FormLogin.GetInstance().Show();
             Hide();
         }
+
+        private void EditProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ScheduleButton_Click(object sender, EventArgs e)
+        {
+            new FormViewScheduleStudent().Show();
+            Hide();
+        }
+
+        private void ViewScoreButton_Click(object sender, EventArgs e)
+        {
+            new FormViewScore().Show();
+            Hide();
+        }
     }
 }

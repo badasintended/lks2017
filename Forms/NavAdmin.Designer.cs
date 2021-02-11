@@ -97,6 +97,7 @@
             this.FinalizeScheduleButton.TabIndex = 14;
             this.FinalizeScheduleButton.Text = "Finalize Schedule";
             this.FinalizeScheduleButton.UseVisualStyleBackColor = true;
+            this.FinalizeScheduleButton.Click += new System.EventHandler(this.FinalizeScheduleButton_Click);
             // 
             // ViewReportScoreButton
             // 
@@ -106,6 +107,7 @@
             this.ViewReportScoreButton.TabIndex = 15;
             this.ViewReportScoreButton.Text = "View Report Score";
             this.ViewReportScoreButton.UseVisualStyleBackColor = true;
+            this.ViewReportScoreButton.Click += new System.EventHandler(this.ViewReportScoreButton_Click);
             // 
             // LogoutButton
             // 

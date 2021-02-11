@@ -52,5 +52,17 @@ namespace Nusantara.Forms
             new FormSchedule().Show();
             Hide();
         }
+
+        private void FinalizeScheduleButton_Click(object sender, EventArgs e)
+        {
+            new FormFinalizeSchedule().Show();
+            Hide();
+        }
+
+        private void ViewReportScoreButton_Click(object sender, EventArgs e)
+        {
+            new FormReportScore().Show();
+            Hide();
+        }
     }
 }

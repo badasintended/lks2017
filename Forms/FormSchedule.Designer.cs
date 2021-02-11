@@ -35,11 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DayBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.subjectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Nusantara.Data.DataSet1();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +51,12 @@
             this.InsertButton = new System.Windows.Forms.Button();
             this.scheduleTableAdapter = new Nusantara.Data.DataSet1TableAdapters.ScheduleTableAdapter();
             this.ErrorLabel = new System.Windows.Forms.Label();
+            this.subjectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -121,6 +122,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.subjectIdDataGridViewTextBoxColumn,
+            this.detailIdDataGridViewTextBoxColumn,
             this.subjectNameDataGridViewTextBoxColumn,
             this.teacherIdDataGridViewTextBoxColumn,
             this.teacherNameDataGridViewTextBoxColumn,
@@ -133,51 +135,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 345);
             this.dataGridView1.TabIndex = 50;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // subjectIdDataGridViewTextBoxColumn
-            // 
-            this.subjectIdDataGridViewTextBoxColumn.DataPropertyName = "SubjectId";
-            this.subjectIdDataGridViewTextBoxColumn.HeaderText = "SubjectId";
-            this.subjectIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subjectIdDataGridViewTextBoxColumn.Name = "subjectIdDataGridViewTextBoxColumn";
-            this.subjectIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // subjectNameDataGridViewTextBoxColumn
-            // 
-            this.subjectNameDataGridViewTextBoxColumn.DataPropertyName = "SubjectName";
-            this.subjectNameDataGridViewTextBoxColumn.HeaderText = "Subject";
-            this.subjectNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subjectNameDataGridViewTextBoxColumn.Name = "subjectNameDataGridViewTextBoxColumn";
-            this.subjectNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // teacherIdDataGridViewTextBoxColumn
-            // 
-            this.teacherIdDataGridViewTextBoxColumn.DataPropertyName = "TeacherId";
-            this.teacherIdDataGridViewTextBoxColumn.HeaderText = "TeacherId";
-            this.teacherIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherIdDataGridViewTextBoxColumn.Name = "teacherIdDataGridViewTextBoxColumn";
-            this.teacherIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teacherIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // teacherNameDataGridViewTextBoxColumn
-            // 
-            this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
-            this.teacherNameDataGridViewTextBoxColumn.HeaderText = "Teacher Name";
-            this.teacherNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
-            this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teacherNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // shiftIdDataGridViewTextBoxColumn
-            // 
-            this.shiftIdDataGridViewTextBoxColumn.DataPropertyName = "ShiftId";
-            this.shiftIdDataGridViewTextBoxColumn.HeaderText = "ShiftId";
-            this.shiftIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.shiftIdDataGridViewTextBoxColumn.Name = "shiftIdDataGridViewTextBoxColumn";
-            this.shiftIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.shiftIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // scheduleBindingSource
             // 
@@ -331,6 +288,60 @@
             this.ErrorLabel.Text = "label9";
             this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // subjectIdDataGridViewTextBoxColumn
+            // 
+            this.subjectIdDataGridViewTextBoxColumn.DataPropertyName = "SubjectId";
+            this.subjectIdDataGridViewTextBoxColumn.HeaderText = "SubjectId";
+            this.subjectIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subjectIdDataGridViewTextBoxColumn.Name = "subjectIdDataGridViewTextBoxColumn";
+            this.subjectIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subjectIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // detailIdDataGridViewTextBoxColumn
+            // 
+            this.detailIdDataGridViewTextBoxColumn.DataPropertyName = "DetailId";
+            this.detailIdDataGridViewTextBoxColumn.HeaderText = "DetailId";
+            this.detailIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.detailIdDataGridViewTextBoxColumn.Name = "detailIdDataGridViewTextBoxColumn";
+            this.detailIdDataGridViewTextBoxColumn.Visible = false;
+            this.detailIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // subjectNameDataGridViewTextBoxColumn
+            // 
+            this.subjectNameDataGridViewTextBoxColumn.DataPropertyName = "SubjectName";
+            this.subjectNameDataGridViewTextBoxColumn.HeaderText = "Subject";
+            this.subjectNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subjectNameDataGridViewTextBoxColumn.Name = "subjectNameDataGridViewTextBoxColumn";
+            this.subjectNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subjectNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // teacherIdDataGridViewTextBoxColumn
+            // 
+            this.teacherIdDataGridViewTextBoxColumn.DataPropertyName = "TeacherId";
+            this.teacherIdDataGridViewTextBoxColumn.HeaderText = "TeacherId";
+            this.teacherIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherIdDataGridViewTextBoxColumn.Name = "teacherIdDataGridViewTextBoxColumn";
+            this.teacherIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teacherIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // teacherNameDataGridViewTextBoxColumn
+            // 
+            this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
+            this.teacherNameDataGridViewTextBoxColumn.HeaderText = "Teacher Name";
+            this.teacherNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
+            this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teacherNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // shiftIdDataGridViewTextBoxColumn
+            // 
+            this.shiftIdDataGridViewTextBoxColumn.DataPropertyName = "ShiftId";
+            this.shiftIdDataGridViewTextBoxColumn.HeaderText = "ShiftId";
+            this.shiftIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.shiftIdDataGridViewTextBoxColumn.Name = "shiftIdDataGridViewTextBoxColumn";
+            this.shiftIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.shiftIdDataGridViewTextBoxColumn.Width = 125;
+            // 
             // FormSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -389,11 +400,12 @@
         private Data.DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource scheduleBindingSource;
         private Data.DataSet1TableAdapters.ScheduleTableAdapter scheduleTableAdapter;
+        private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detailIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label ErrorLabel;
     }
 }

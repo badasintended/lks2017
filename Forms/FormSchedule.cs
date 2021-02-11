@@ -27,7 +27,6 @@ namespace Nusantara.Forms
             DayBox.DataSource = Enum.GetValues(typeof(DayOfWeek));
             DayBox.SelectedItem = DayOfWeek.Monday;
 
-            SubjectBox.DataSource = Program.Entities.Subjects.ToList();
             SubjectBox.DisplayMember = "SubjectId";
 
             ShiftBox.DataSource = Program.Entities.Shifts.ToList();
@@ -40,11 +39,15 @@ namespace Nusantara.Forms
         {
             initialized = true;
 
-            var clazz = ((Data.Class)ClassBox.SelectedItem).ClassName;
+            var clazz = ((Data.Class)ClassBox.SelectedItem);
             var day = Enum.GetName(typeof(DayOfWeek), (DayOfWeek)DayBox.SelectedItem);
 
             dataGridView1.DataSource = Program.Entities.Schedules
-                .Where(s => s.Day == day && s.ClassName == clazz)
+                .Where(s => s.Day == day && s.ClassName == clazz.ClassName)
+                .ToList();
+
+            SubjectBox.DataSource = Program.Entities.Subjects
+                .Where(s => s.ForGrade == clazz.Grade)
                 .ToList();
         }
 
@@ -147,12 +150,57 @@ namespace Nusantara.Forms
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow.Index == -1) return;
 
+            DialogResult result = MessageBox.Show(
+                "Delete Schedule?", "Confirm",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[detailIdDataGridViewTextBoxColumn.Index].Value);
+                var schedule = Program.Entities.DetailSchedules
+                    .Where(d => d.DetailId == id)
+                    .FirstOrDefault();
+
+                Program.Entities.DetailSchedules.Remove(schedule);
+                Program.Entities.SaveChanges();
+
+                Reset();
+                ChangeMode(null);
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var subject = (Data.Subject)SubjectBox.SelectedItem;
+            var shift = (Data.Shift)ShiftBox.SelectedItem;
+            var teacher = (Data.Teacher)TeacherBox.SelectedItem;
 
+            var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[detailIdDataGridViewTextBoxColumn.Index].Value);
+            var schedule = mode == EditMode.INSERT ? new Data.DetailSchedule() : Program.Entities.DetailSchedules
+                .Where(d => d.DetailId == id)
+                .FirstOrDefault();
+
+            schedule.Day = ((DayOfWeek)DayBox.SelectedItem).ToString();
+            schedule.Subject = subject;
+            schedule.Shift = shift;
+            schedule.TeacherId = teacher.TeacherId;
+            schedule.HeaderSchedule = Program.Entities.HeaderSchedules
+                .Where(h => h.ClassName == ((Data.Class)ClassBox.SelectedItem).ClassName)
+                .FirstOrDefault();
+
+            if (mode == EditMode.INSERT)
+            {
+                Program.Entities.DetailSchedules.Add(schedule);
+            }
+
+            Program.Entities.SaveChanges();
+
+            Reset();
+            ChangeMode(null);
         }
     }
 }
