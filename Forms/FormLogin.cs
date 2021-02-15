@@ -56,10 +56,10 @@ namespace Nusantara.Forms
             switch (Program.User.role)
             {
                 case "Teacher":
-                    new NavTeacher().Show();
+                    NavTeacher.GetInstance().Show();
                     break;
                 case "Student":
-                    new NavStudent().Show();
+                    NavStudent.GetInstance().Show();
                     break;
             }
 

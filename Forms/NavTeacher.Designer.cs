@@ -43,6 +43,7 @@
             this.EditProfileButton.TabIndex = 0;
             this.EditProfileButton.Text = "Edit Profile";
             this.EditProfileButton.UseVisualStyleBackColor = true;
+            this.EditProfileButton.Click += new System.EventHandler(this.EditProfileButton_Click);
             // 
             // ScheduleButton
             // 
@@ -52,6 +53,7 @@
             this.ScheduleButton.TabIndex = 1;
             this.ScheduleButton.Text = "Teaching Schedule";
             this.ScheduleButton.UseVisualStyleBackColor = true;
+            this.ScheduleButton.Click += new System.EventHandler(this.ScheduleButton_Click);
             // 
             // InputScoreButton
             // 
@@ -61,6 +63,7 @@
             this.InputScoreButton.TabIndex = 2;
             this.InputScoreButton.Text = "Input Score";
             this.InputScoreButton.UseVisualStyleBackColor = true;
+            this.InputScoreButton.Click += new System.EventHandler(this.InputScoreButton_Click);
             // 
             // LogoutButton
             // 

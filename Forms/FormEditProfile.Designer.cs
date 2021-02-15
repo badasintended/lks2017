@@ -42,11 +42,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // IdBox
             // 
+            this.IdBox.Enabled = false;
             this.IdBox.Location = new System.Drawing.Point(182, 273);
             this.IdBox.Name = "IdBox";
             this.IdBox.Size = new System.Drawing.Size(176, 22);
@@ -76,21 +78,23 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(125, 452);
+            this.SaveButton.Location = new System.Drawing.Point(132, 456);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 33);
             this.SaveButton.TabIndex = 4;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(218, 452);
+            this.CancelButton.Location = new System.Drawing.Point(225, 456);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 33);
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // label1
             // 
@@ -130,17 +134,18 @@
             // 
             // ChangePasswordButton
             // 
-            this.ChangePasswordButton.Location = new System.Drawing.Point(139, 221);
+            this.ChangePasswordButton.Location = new System.Drawing.Point(147, 221);
             this.ChangePasswordButton.Name = "ChangePasswordButton";
             this.ChangePasswordButton.Size = new System.Drawing.Size(144, 33);
             this.ChangePasswordButton.TabIndex = 10;
             this.ChangePasswordButton.Text = "Change Password";
             this.ChangePasswordButton.UseVisualStyleBackColor = true;
+            this.ChangePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Nusantara.Properties.Resources.pp1;
-            this.pictureBox1.Location = new System.Drawing.Point(133, 65);
+            this.pictureBox1.Location = new System.Drawing.Point(141, 65);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +156,7 @@
             // 
             this.button4.BackgroundImage = global::Nusantara.Properties.Resources.edit;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(236, 164);
+            this.button4.Location = new System.Drawing.Point(244, 164);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(50, 50);
             this.button4.TabIndex = 12;
@@ -168,11 +173,24 @@
             this.label8.Text = "Form Profile";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(12, 430);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(415, 23);
+            this.ErrorLabel.TabIndex = 43;
+            this.ErrorLabel.Text = "label4";
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormEditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 533);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
@@ -189,6 +207,7 @@
             this.Controls.Add(this.IdBox);
             this.Name = "FormEditProfile";
             this.Text = "FormEditProfile";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditProfile_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,5 +230,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }

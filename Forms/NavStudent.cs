@@ -37,7 +37,8 @@ namespace Nusantara.Forms
 
         private void EditProfileButton_Click(object sender, EventArgs e)
         {
-
+            new FormEditProfile(this).Show();
+            Hide();
         }
 
         private void ScheduleButton_Click(object sender, EventArgs e)

@@ -10,18 +10,44 @@ using System.Windows.Forms;
 
 namespace Nusantara.Forms
 {
-    public partial class FormChangePassword : Form, IForm
+    public partial class FormChangePassword : Form
     {
         public FormChangePassword()
         {
             InitializeComponent();
+
+            ErrorLabel.Text = "";
         }
 
-        public void Clear()
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            OldPassBox.Clear();
-            NewPassBox.Clear();
-            ConfirmPassBox.Clear();
+            ErrorLabel.Text = "";
+
+            var oldPw = OldPassBox.Text;
+            var newPw = NewPassBox.Text;
+            var confirm = ConfirmPassBox.Text;
+
+            if (oldPw != Program.User.password)
+            {
+                ErrorLabel.Text = "wrong old password";
+                return;
+            }
+
+            if (confirm.Length <= 0)
+            {
+                ErrorLabel.Text = "Confirm your password";
+                return;
+            }
+
+            if (newPw != confirm)
+            {
+                ErrorLabel.Text = "Wrong confirmation";
+                return;
+            }
+
+            Program.User.password = newPw;
+            Program.Entities.SaveChanges();
+            Close();
         }
     }
 }

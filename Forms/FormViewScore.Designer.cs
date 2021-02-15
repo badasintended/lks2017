@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ScoreLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.subjectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,16 +57,16 @@
             this.label8.Text = "View Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // ScoreLabel
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ScoreLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Location = new System.Drawing.Point(5, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(783, 23);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Assignment: 20%, Mid Exam: 30%, Final Exam: 50%";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ScoreLabel.Location = new System.Drawing.Point(5, 35);
+            this.ScoreLabel.Name = "ScoreLabel";
+            this.ScoreLabel.Size = new System.Drawing.Size(783, 23);
+            this.ScoreLabel.TabIndex = 53;
+            this.ScoreLabel.Text = "Assignment: 20%, Mid Exam: 30%, Final Exam: 50%";
+            this.ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
@@ -89,7 +89,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(776, 364);
             this.dataGridView1.TabIndex = 54;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // subjectIdDataGridViewTextBoxColumn
@@ -165,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.label8);
             this.Name = "FormViewScore";
             this.Text = "FormViewScore";
@@ -180,7 +180,7 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Data.DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource studentScoreBindingSource;

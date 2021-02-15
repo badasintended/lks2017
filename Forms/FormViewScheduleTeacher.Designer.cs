@@ -82,6 +82,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(786, 289);
             this.dataGridView1.TabIndex = 48;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // subjectIdDataGridViewTextBoxColumn
             // 
@@ -218,6 +219,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormViewScheduleTeacher";
             this.Text = "FormViewScheduleTeacher";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewScheduleTeacher_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();

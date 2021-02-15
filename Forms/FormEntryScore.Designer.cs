@@ -94,6 +94,7 @@
             this.SaveButton.TabIndex = 53;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // label2
             // 
@@ -141,6 +142,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormEntryScore";
             this.Text = "FormEntryScore";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

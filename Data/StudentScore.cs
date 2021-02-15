@@ -21,5 +21,6 @@ namespace Nusantara.Data
         public Nullable<int> FinalExam { get; set; }
         public string SubjectName { get; set; }
         public string SubjectId { get; set; }
+        public int ScoreDetailId { get; set; }
     }
 }

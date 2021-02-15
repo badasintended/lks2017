@@ -15,6 +15,12 @@ namespace Nusantara.Forms
         public FormViewScore()
         {
             InitializeComponent();
+
+            dataGridView1.DataSource = Program.Entities.StudentScores
+                .Where(s => s.StudentId == Program.User.Student.StudentId)
+                .ToList();
+
+            ScoreLabel.Text = "";
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -36,14 +42,24 @@ namespace Nusantara.Forms
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FormViewScore_FormClosed(object sender, FormClosedEventArgs e)
         {
             NavStudent.GetInstance().Show();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell == null) return;
+            if (e.RowIndex == -1) return;
+
+            DataGridViewCellCollection cells = dataGridView1.Rows[e.RowIndex].Cells;
+
+            var id = Convert.ToString(cells[subjectIdDataGridViewTextBoxColumn.Index].Value);
+            var subject = Program.Entities.Subjects
+                .Where(s => s.SubjectId == id)
+                .FirstOrDefault();
+
+            ScoreLabel.Text = "Assignment: " + subject.Assignment + "%, Mid Exam: " + subject.MidExam + "%, Final Exam: " + subject.FinalExam + "%";
         }
     }
 }

@@ -152,9 +152,11 @@ warning 6002: The table/view 'LKSN2017.dbo.Schedule' does not have a primary key
 warning 6002: The table/view 'LKSN2017.dbo.StudentScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StudentScore">
           <Key>
+            <PropertyRef Name="ScoreDetailId" />
             <PropertyRef Name="StudentId" />
             <PropertyRef Name="SubjectId" />
           </Key>
+          <Property Name="ScoreDetailId" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="StudentName" Type="varchar" MaxLength="50" />
           <Property Name="SubjectId" Type="char" MaxLength="5" Nullable="false" />
@@ -375,6 +377,7 @@ warning 6002: The table/view 'LKSN2017.dbo.StudentScore' does not have a primary
           </EntitySet>
           <EntitySet Name="StudentScore" EntityType="Self.StudentScore" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [StudentScore].[ScoreDetailId] AS [ScoreDetailId], 
     [StudentScore].[StudentId] AS [StudentId], 
     [StudentScore].[StudentName] AS [StudentName], 
     [StudentScore].[SubjectId] AS [SubjectId], 
@@ -839,6 +842,7 @@ warning 6002: The table/view 'LKSN2017.dbo.StudentScore' does not have a primary
           <Key>
             <PropertyRef Name="StudentId" />
             <PropertyRef Name="SubjectId" />
+            <PropertyRef Name="ScoreDetailId" />
           </Key>
           <Property Name="StudentId" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -847,6 +851,7 @@ warning 6002: The table/view 'LKSN2017.dbo.StudentScore' does not have a primary
           <Property Name="FinalExam" Type="Int32" />
           <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SubjectId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="ScoreDetailId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -1033,6 +1038,7 @@ warning 6002: The table/view 'LKSN2017.dbo.StudentScore' does not have a primary
           <EntitySetMapping Name="StudentScores">
             <EntityTypeMapping TypeName="DataModel.StudentScore">
               <MappingFragment StoreEntitySet="StudentScore">
+                <ScalarProperty Name="ScoreDetailId" ColumnName="ScoreDetailId" />
                 <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
                 <ScalarProperty Name="FinalExam" ColumnName="FinalExam" />

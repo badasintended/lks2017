@@ -36,16 +36,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.studentScoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Nusantara.Data.DataSet1();
+            this.studentScoreTableAdapter = new Nusantara.Data.DataSet1TableAdapters.StudentScoreTableAdapter();
+            this.EntryButton = new System.Windows.Forms.Button();
+            this.scoreDetailIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.midExamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalExamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentScoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Nusantara.Data.DataSet1();
-            this.studentScoreTableAdapter = new Nusantara.Data.DataSet1TableAdapters.StudentScoreTableAdapter();
-            this.EntryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentScoreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -70,6 +71,8 @@
             this.SubjectBox.Name = "SubjectBox";
             this.SubjectBox.Size = new System.Drawing.Size(140, 24);
             this.SubjectBox.TabIndex = 48;
+            this.SubjectBox.SelectedIndexChanged += new System.EventHandler(this.SubjectBox_SelectedIndexChanged);
+            this.SubjectBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.SubjectBox_Format);
             // 
             // ClassBox
             // 
@@ -79,6 +82,7 @@
             this.ClassBox.Name = "ClassBox";
             this.ClassBox.Size = new System.Drawing.Size(121, 24);
             this.ClassBox.TabIndex = 49;
+            this.ClassBox.SelectedIndexChanged += new System.EventHandler(this.ClassBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -119,6 +123,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.scoreDetailIdDataGridViewTextBoxColumn,
             this.studentIdDataGridViewTextBoxColumn,
             this.studentNameDataGridViewTextBoxColumn,
             this.assignmentDataGridViewTextBoxColumn,
@@ -132,6 +137,43 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(798, 433);
             this.dataGridView1.TabIndex = 53;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // studentScoreBindingSource
+            // 
+            this.studentScoreBindingSource.DataMember = "StudentScore";
+            this.studentScoreBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentScoreTableAdapter
+            // 
+            this.studentScoreTableAdapter.ClearBeforeFill = true;
+            // 
+            // EntryButton
+            // 
+            this.EntryButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EntryButton.Location = new System.Drawing.Point(350, 572);
+            this.EntryButton.Name = "EntryButton";
+            this.EntryButton.Size = new System.Drawing.Size(98, 28);
+            this.EntryButton.TabIndex = 54;
+            this.EntryButton.Text = "Entry Score";
+            this.EntryButton.UseVisualStyleBackColor = true;
+            this.EntryButton.Click += new System.EventHandler(this.EntryButton_Click);
+            // 
+            // scoreDetailIdDataGridViewTextBoxColumn
+            // 
+            this.scoreDetailIdDataGridViewTextBoxColumn.DataPropertyName = "ScoreDetailId";
+            this.scoreDetailIdDataGridViewTextBoxColumn.HeaderText = "ScoreDetailId";
+            this.scoreDetailIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.scoreDetailIdDataGridViewTextBoxColumn.Name = "scoreDetailIdDataGridViewTextBoxColumn";
+            this.scoreDetailIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scoreDetailIdDataGridViewTextBoxColumn.Visible = false;
+            this.scoreDetailIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // studentIdDataGridViewTextBoxColumn
             // 
@@ -144,12 +186,13 @@
             // 
             // studentNameDataGridViewTextBoxColumn
             // 
+            this.studentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "StudentName";
             this.studentNameDataGridViewTextBoxColumn.HeaderText = "StudentName";
             this.studentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
             this.studentNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.studentNameDataGridViewTextBoxColumn.Width = 125;
+            this.studentNameDataGridViewTextBoxColumn.Width = 24;
             // 
             // assignmentDataGridViewTextBoxColumn
             // 
@@ -186,29 +229,6 @@
             this.finalColumn.ReadOnly = true;
             this.finalColumn.Width = 125;
             // 
-            // studentScoreBindingSource
-            // 
-            this.studentScoreBindingSource.DataMember = "StudentScore";
-            this.studentScoreBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentScoreTableAdapter
-            // 
-            this.studentScoreTableAdapter.ClearBeforeFill = true;
-            // 
-            // EntryButton
-            // 
-            this.EntryButton.Location = new System.Drawing.Point(374, 577);
-            this.EntryButton.Name = "EntryButton";
-            this.EntryButton.Size = new System.Drawing.Size(75, 23);
-            this.EntryButton.TabIndex = 54;
-            this.EntryButton.Text = "button1";
-            this.EntryButton.UseVisualStyleBackColor = true;
-            // 
             // FormInputScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,6 +244,7 @@
             this.Controls.Add(this.label8);
             this.Name = "FormInputScore";
             this.Text = "FormInputScore";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInputScore_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentScoreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
@@ -244,12 +265,13 @@
         private Data.DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource studentScoreBindingSource;
         private Data.DataSet1TableAdapters.StudentScoreTableAdapter studentScoreTableAdapter;
+        private System.Windows.Forms.Button EntryButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDetailIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn midExamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalExamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalColumn;
-        private System.Windows.Forms.Button EntryButton;
     }
 }

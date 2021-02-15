@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label8
@@ -55,6 +56,7 @@
             this.OldPassBox.Name = "OldPassBox";
             this.OldPassBox.Size = new System.Drawing.Size(158, 22);
             this.OldPassBox.TabIndex = 44;
+            this.OldPassBox.UseSystemPasswordChar = true;
             // 
             // NewPassBox
             // 
@@ -62,6 +64,7 @@
             this.NewPassBox.Name = "NewPassBox";
             this.NewPassBox.Size = new System.Drawing.Size(158, 22);
             this.NewPassBox.TabIndex = 45;
+            this.NewPassBox.UseSystemPasswordChar = true;
             // 
             // ConfirmPassBox
             // 
@@ -69,6 +72,7 @@
             this.ConfirmPassBox.Name = "ConfirmPassBox";
             this.ConfirmPassBox.Size = new System.Drawing.Size(158, 22);
             this.ConfirmPassBox.TabIndex = 46;
+            this.ConfirmPassBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -99,18 +103,32 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(142, 159);
+            this.SaveButton.Location = new System.Drawing.Point(147, 167);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 28);
             this.SaveButton.TabIndex = 50;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(12, 141);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(346, 23);
+            this.ErrorLabel.TabIndex = 51;
+            this.ErrorLabel.Text = "label4";
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 218);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -136,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }

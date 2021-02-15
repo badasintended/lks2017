@@ -50,6 +50,7 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(170, 22);
             this.PasswordBox.TabIndex = 1;
+            this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // LoginButton
             // 
